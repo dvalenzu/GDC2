@@ -8,7 +8,7 @@ CLINK	= -lm -O3 -m64 -Wl,--whole-archive -lpthread -Wl,--no-whole-archive -std=c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 gdc2: c1stage.o c2stage.o fasta.o hasher.o main.o p1stage.o qsmodel.o queue.o rangecod.o timer.o
-	$(CC) $(CLINK) -o gdc2 c1stage.o c2stage.o fasta.o hasher.o main.o p1stage.o qsmodel.o queue.o rangecod.o timer.o ../libs/libaelf64.a 
+	$(CC) -o gdc2 c1stage.o c2stage.o fasta.o hasher.o main.o p1stage.o qsmodel.o queue.o rangecod.o timer.o ../libs/libaelf64.a $(CLINK) 
 
 clean:
 	rm gdc2
